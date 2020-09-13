@@ -25,7 +25,8 @@ public class UsuarioNodo {
     UsuarioNodo hIzq;
     UsuarioNodo hDer;
     //Se puede cambiar el parametro de Geo para que la responsabilidad la tenga el adress
-    UsuarioNodo(int id,String name,String userName,String email,String phone,String website,Adress adress,Company company,Geo geo){
+   
+    UsuarioNodo(int id,String name,String userName,String email,String phone,String website,Adress adress,Company company){
         this.id=id;
         this.name=name;
         this.userName=userName;
@@ -33,8 +34,8 @@ public class UsuarioNodo {
         this.phone=phone;
         this.website=website;
         posts=new ArrayList();
-        this.adress=new Adress(adress.getStreet(),adress.getSuite(),adress.getSuite(),adress.getZipCode(),geo);
-        this.company=new Company(company.getName(),company.getCatchPhrase(),company.getBs());
+        this.adress=adress;
+        this.company=company;
         hDer=null;
         hIzq=null;
     }
@@ -107,5 +108,11 @@ public class UsuarioNodo {
     public void sethDer(UsuarioNodo hDer) {
         this.hDer = hDer;
     }
+
+    @Override
+    public String toString() {
+        return "UsuarioNodo{" + "id=" + id + ", name=" + name + ", userName=" + userName + ", email=" + email + ", phone=" + phone + ", website=" + website + ", posts=" + posts + ", comentarios=" + comentarios + ", company=" + company + ", adress=" + adress + '}';
+    }
+    
     
 }
